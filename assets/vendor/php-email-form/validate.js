@@ -63,14 +63,19 @@
       }
     })
     .then(data => {
+      console.log("📌 Response Data:", data); // ✅ Log response
+    
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      
+      if (data.trim().toLowerCase().includes('success')) {  
         thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset(); 
+        thisForm.reset();
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        console.error("❌ Unexpected response:", data);
+        displayError(thisForm, data); // Show actual error message
       }
     })
+    
     .catch((error) => {
       displayError(thisForm, error);
     });
