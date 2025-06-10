@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /assets/vendor/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://portfolio.ahmnanzil.me/sitemap.xml
